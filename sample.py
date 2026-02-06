@@ -1,25 +1,64 @@
-N = 3
+# T = int(input())
+# N, M = map(int,input().split())
+# #여기까지 입력받기 완료
+#
+#
+# for tc in range(T): #tc 케이스에 대하여
+#     arr = [list((input())) for _ in range(N)] #N줄 만큼의 숫자를 입력받는다.
+#     print(arr)
+#     print(arr[0])
+#     print(arr[0][1])
+#     print(type(arr[0][1]))
+#     print(arr[0][0:3])
+#     print(arr[0][0:3][::-1])
+#     print(type(arr[0][0:3]))
+#     if arr[0][0:3]==arr[0][0:3][::-1]:
+#         print(arr[0][0:3]
+#     else:
+#         print("NO")
 
-arr = [[0] * N for _ in range(N)]
-
-# 방향, delta리스트 설정
-dr = [0, 1, 0, -1]
-dc = [1, 0, -1, 0]
-# dr / dc 리스트의 인덱스라고 생각하면 됨 (오:0, 아:1, 왼:2. 위:3)
 
 
-d = 0  # 현재 방향 (오른쪽)
-r = 0  # 현재 위치 (row: 행)
-c = 0  # 현재 위치 (column: 열)
-for num in range(1, N ^ 2 + 1):  # num은 앞으로 1부터 차례대로 채울 '숫자'이다.
-    arr[r][c] = num
-    nr = r + dr[d]  # 새로운위치(nr) = 현재위치(r)+방향(dr[d])
-    nc = c + dc[d]  # 새로운위치(nc) = 현재위치(c)+방향(dr[d])
 
-    if nr < 0 or nr >= N or nc < 0 or nr >= N or arr[nr][nc] != 0:
-        d = (d + 1) % 4
-        nr = r + dr[d]
-        nc = c + dc[d]
 
-    r = nr
-    c = nc
+    # r, c = 0, 0 # 초기 위치 설정
+
+    #가로열부터 시작
+    # for i in range(N):
+    #     for j in range(N-M+1):
+    #         if arr[i][0][j:j+3] == arr[i][0][j:j+3][::-1]:
+    #             print(arr[i][0][j:j+3])
+    #         else:
+    #             continue
+
+# a=[input()]
+# print(a)
+# if a[0][1:4] == a[0][1:4][::-1]:
+#     print(a[0][1:4])
+#     print('OK')
+# else:
+#     print('FAIL')
+
+T = int(input())
+N, M = map(int, input().split())
+#여기까지 입력받기 완료
+
+
+for tc in range(T): #tc 케이스에 대하여
+    # arr = [list ((input())) for _ in range(N)] #N줄 만큼의 숫자를 입력받는다.
+    # for i in range(N):
+    #     for j in range(0,N-M+1):
+    #         if arr[i][j:j+3] == arr[i][j:j+3][::-1]:
+    #             print(arr[i][j:j+3])
+    #         else:
+    #             continue
+    arr = [list((input())) for _ in range(N)]
+    for i in range(N):
+        for j in range(0, N - M + 1):
+            l = []
+            l.append(arr[j][i])
+            l.append(arr[j+1][i])
+            l.append(arr[j+2][i])
+            if l == l[::-1]:
+                print(l)
+            else: continue
